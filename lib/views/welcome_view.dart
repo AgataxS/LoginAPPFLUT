@@ -6,25 +6,30 @@ class WelcomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Bienvenido'),
-        centerTitle: true,
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.teal[100]!, Colors.teal[300]!],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
-        child: Center(
-          child: Text(
-            '¡Bienvenido!',
-            style: TextStyle(
-              fontSize: 36,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '¡Bienvenido a la App!',
+              style: Theme.of(context).textTheme.displayLarge,
+              textAlign: TextAlign.center,
             ),
-          ),
+            SizedBox(height: 40),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/complaint');
+              },
+              child: Text('Ir al Formulario de Quejas'),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
